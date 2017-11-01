@@ -24,6 +24,14 @@ public class Book {
     @NotNull
     private String author;
 
+    public Book(){}
+
+    public Book(String title, int pages, String author) {
+        this.title = title;
+        this.pages = pages;
+        this.author = author;
+    }
+
     public Student getStudent() {
         return student;
     }

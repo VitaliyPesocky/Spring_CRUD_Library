@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Aero
@@ -11,6 +12,30 @@
     <title>Title</title>
 </head>
 <body>
-
+    <c:if test="${!empty books}">
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+                <th>Id</th>
+                <th>StudentId</th>
+                <th>Title</th>
+                <th>Pages</th>
+                <th>Author</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <c:forEach items="${books}" var="book">
+                <tr>
+                    <td>${book.id}</td>
+                    <td>${book.studentId}</td>
+                    <td>${book.title}</td>
+                    <td>${book.pages}</td>
+                    <td>${book.author}</td>
+                    <td><a href="updateBook/${book.id}">Update</a> </td>
+                    <td><a href="deleteBook/${book.id}">Delete</a> </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+<a href="addBook">Add Book</a>
 </body>
 </html>

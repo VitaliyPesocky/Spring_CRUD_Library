@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,12 @@ public class Student {
 
     public Student(){}
 
+    public Student(String name, int age, boolean isExtrumural) {
+        this.name = name;
+        this.age = age;
+        this.isExtrumural = isExtrumural;
+    }
+
     public int getId() {
         return id;
     }
@@ -61,8 +68,8 @@ public class Student {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedDate() {
+        this.createdDate = new Timestamp(System.currentTimeMillis());
     }
 
     public boolean isExtrumural() {

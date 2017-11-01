@@ -11,12 +11,9 @@ import java.util.List;
 
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
+    @Autowired
     private SessionFactory sessionFactory;
 
-    @Autowired
-    public StudentRepositoryImpl(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-    }
     @Override
     public void addStudent(Student student) {
         Session session = sessionFactory.openSession();

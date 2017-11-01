@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Aero
@@ -11,6 +12,21 @@
     <title>Title</title>
 </head>
 <body>
-
+<form:form method="post" action="addBook" commandName="book">
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <td>Title</td>
+            <td><input type="text" name="title" value=""></td>
+        </tr>
+        <tr>
+            <td>Pages</td>
+            <td><input type="text" name="pages" value=""></td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td><input type="text" name="author" value=""></td>
+        </tr>
+    </table>
+</form:form>
 </body>
 </html>
