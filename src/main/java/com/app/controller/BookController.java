@@ -23,13 +23,16 @@ public class BookController {
     }
 
     @RequestMapping(value = "deleteBook/{id}", method = RequestMethod.GET)
-    public String deleteBook(@PathVariable Integer id) {
+    public String deleteBook(@PathVariable Integer id, Model model) {
+        Book book = bookRepository.getBook(id);
         bookRepository.removeBook(id);
-        return "redirect:/getBooks";
+        Integer studentId = book.getStudent().getId();
+        model.addAttribute("studentId", studentId);
+        return "redirect:/listOfBooks/{studentId}";
     }
 
     @RequestMapping(value = "addBook/{studentId}", method = RequestMethod.GET)
-    public String addBook(ModelMap model, Integer studentId) {
+    public String addBook(ModelMap model, @PathVariable Integer studentId) {
         model.addAttribute("studentId", studentId);
         return "addBook";
     }
@@ -39,12 +42,12 @@ public class BookController {
                           @PathVariable Integer studentId) {
         Book book = new Book(title, Integer.parseInt(pages), author);
         bookRepository.addBook(book, studentId);
-        return "redirect:/getBooks/{studentId}";
+        return "redirect:/listOfBooks/{studentId}";
     }
 
     @RequestMapping(value = "updateBook/{id}", method = RequestMethod.GET)
     public String updateBook(@PathVariable Integer id, Model model) {
-        model.addAttribute(bookRepository.getBook(id));
+        model.addAttribute("bookAttribute" ,bookRepository.getBook(id));
         return "updateBook";
     }
 
@@ -56,10 +59,11 @@ public class BookController {
         book.setPages(Integer.parseInt(pages));
         book.setTitle(title);
         bookRepository.updateBook(book);
-        return "redirect:/getBooks";
+        model.addAttribute("studentId", book.getStudent().getId());
+        return "redirect:/listOfBooks/{studentId}";
     }
 
-    @RequestMapping(value = "getBooks/{studentId}", method = RequestMethod.GET)
+    @RequestMapping(value = "listOfBooks/{studentId}", method = RequestMethod.GET)
     public String getBooksByStudId(Model model, @PathVariable Integer studentId) {
         List<Book> books = bookRepository.getAllBooksForUser(studentId);
         model.addAttribute("books", books);

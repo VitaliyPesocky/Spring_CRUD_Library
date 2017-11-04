@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" action="addBook" commandName="book">
+<form:form method="post" action="/addBook/${studentId}" commandName="book">
     <table border="1" cellpadding="8" cellspacing="0">
         <tr>
             <td>Title</td>
@@ -26,7 +26,11 @@
             <td>Author</td>
             <td><input type="text" name="author" value=""></td>
         </tr>
+        <tr>
+            <td><input type="submit" value="Add Book"/></td>
+        </tr>
     </table>
 </form:form>
+
 </body>
 </html>

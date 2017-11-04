@@ -30,7 +30,7 @@
                     <td>${student.name}</td>
                     <td>${student.age}</td>
                     <td>${student.createdDate}</td>
-                    <td><c:if test="${student.isExtrumutal==true}">+</c:if></td>
+                    <td><c:if test="${student.extrumural==true}">+</c:if></td>
                     <td><a href="updateStudent/${student.id}">Update</a> </td>
                     <td><a href="deleteStudent/${student.id}">Delete</a> </td>
                     <td><a href="listOfBooks/${student.id}">List Of Books</a> </td>
@@ -38,6 +38,6 @@
             </c:forEach>
         </table>
     </c:if>
-<a href="addStudent.jsp">Add student</a>
+<a href="addStudent">Add student</a>
 </body>
 </html>

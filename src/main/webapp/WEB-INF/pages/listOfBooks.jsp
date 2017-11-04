@@ -26,16 +26,15 @@
             <c:forEach items="${books}" var="book">
                 <tr>
                     <td>${book.id}</td>
-                    <td>${book.studentId}</td>
                     <td>${book.title}</td>
                     <td>${book.pages}</td>
                     <td>${book.author}</td>
-                    <td><a href="updateBook/${book.id}">Update</a> </td>
-                    <td><a href="deleteBook/${book.id}">Delete</a> </td>
+                    <td><a href="/updateBook/${book.id}">Update</a> </td>
+                    <td><a href="/deleteBook/${book.id}">Delete</a> </td>
                 </tr>
             </c:forEach>
         </table>
     </c:if>
-<a href="addBook">Add Book</a>
+<a href="/addBook/${studentId}">Add Book</a>
 </body>
 </html>

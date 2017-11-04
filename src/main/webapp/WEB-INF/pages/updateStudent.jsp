@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td>isExtrumural?</td>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" name="isExtrumural"></td>
         </tr>
     </table>
     <input type="submit" value="Save"/>
